@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import VisionSection from './VisionSection';
+import MeetTheTeamSection from './MeetTheTeamSection';
+import FirstFamilySection from './rstFamilySection';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -114,6 +117,7 @@ const LandingPage = () => {
         </nav>
       </header>
 
+
       {/* Hero Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
@@ -149,6 +153,12 @@ const LandingPage = () => {
             </div>
         </div>
         </section>
+
+        <VisionSection></VisionSection>
+        <FirstFamilySection></FirstFamilySection>
+        <MeetTheTeamSection></MeetTheTeamSection>
+
+
 
       {/* CTA Section */}
       <section id="about" className="py-20 px-6 bg-gray-50">
