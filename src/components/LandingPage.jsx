@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import VisionSection from './VisionSection';
 import MeetTheTeamSection from './MeetTheTeamSection';
-import FirstFamilySection from './rstFamilySection';
+
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -36,6 +36,7 @@ const LandingPage = () => {
     { name: 'About', href: '#about' },
     { name: 'Solutions', href: '#solutions' },
     { name: 'Contact', href: '#contact' },
+    {name: 'Our Team', href:'#team'},
     { name: 'Admin', href: '/admin' }
   ];
 
@@ -138,6 +139,8 @@ const LandingPage = () => {
         </div>
       </section>
 
+      <VisionSection></VisionSection>
+
       {/* Solutions Section */}
         <section id="solutions" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -154,8 +157,8 @@ const LandingPage = () => {
         </div>
         </section>
 
-        <VisionSection></VisionSection>
-        <FirstFamilySection></FirstFamilySection>
+       
+        
         <MeetTheTeamSection></MeetTheTeamSection>
 
 
