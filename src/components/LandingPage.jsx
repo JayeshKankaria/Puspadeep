@@ -166,7 +166,7 @@ const LandingPage = () => {
       {/* CTA Section */}
       <section id="about" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold mb-6">About Us</h2>
           <p className="text-xl text-gray-600 mb-8">
             Join thousands of satisfied customers who have transformed their business
           </p>
