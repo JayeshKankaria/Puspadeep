@@ -94,13 +94,15 @@ const MeetTheTeamSection = () => {
   useEffect(() => {
     const fetchTeamMembers = async () => {
       try {
-        const response = await fetch('${process.env.Server_URL}/api/team-members'); 
-        const data = await response.json();
-        setTeamMembers(data);
+         const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/team-members`);
+         const data = await response.json();
+         setTeamMembers(data);
       } catch (error) {
-        console.error('Failed to fetch team members:', error);
+         console.error('Failed to fetch team members:', error);
       }
-    };
+   };
+   
+    
 
     fetchTeamMembers();
   }, []);
