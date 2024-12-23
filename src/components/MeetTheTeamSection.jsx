@@ -9,10 +9,10 @@ const TypingEffect = ({ text, delay = 0 }) => {
     const startTyping = () => {
       if (currentIndex < text.length) {
         const timeout = setTimeout(() => {
-          setCurrentText(prev => prev + text[currentIndex]);
+          setCurrentText((prev) => prev + text[currentIndex]);
           setCurrentIndex(currentIndex + 1);
         }, 100);
-        
+
         return () => clearTimeout(timeout);
       } else {
         setIsTypingComplete(true);
@@ -34,7 +34,7 @@ const TypingEffect = ({ text, delay = 0 }) => {
   );
 };
 
-const TeamMemberCard = ({ member, index }) => {
+const TeamMemberCard = ({ member }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -87,36 +87,31 @@ const TeamMemberCard = ({ member, index }) => {
 };
 
 const MeetTheTeamSection = () => {
-  const teamMembers = [
-    {
-      name: "Arun Sancheti",
-      role: "CEO",
-      image: "src/assets/mem1.jpg"
-    },
-    {
-      name: "Gaurav Dugar",
-      role: "Site Manager",
-      image: "src/assets/mem2.jpg"
-    },
-    {
-      name: "Ravi Dugar",
-      role: "Logistics Manager",
-      image: "src/assets/mem3.jpg"
-    },
-    {
-      name: "Prashant Chopra",
-      role: "Accountant",
-      image: "src/assets/mem4.jpg"
-    }
-  ];
-
+  const [teamMembers, setTeamMembers] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Fetch data from the backend
+  useEffect(() => {
+    const fetchTeamMembers = async () => {
+      try {
+        const response = await fetch('${process.env.Server_URL}/api/team-members'); 
+        const data = await response.json();
+        setTeamMembers(data);
+      } catch (error) {
+        console.error('Failed to fetch team members:', error);
+      }
+    };
+
+    fetchTeamMembers();
+  }, []);
+
+  // Animation visibility
   useEffect(() => {
     const timeout = setTimeout(() => setIsVisible(true), 600);
     return () => clearTimeout(timeout);
   }, []);
 
+  // Group team members by role
   const groupedTeamMembers = teamMembers.reduce((acc, member) => {
     acc[member.role] = acc[member.role] || [];
     acc[member.role].push(member);
@@ -157,42 +152,13 @@ const MeetTheTeamSection = () => {
                     ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}
                   `}
                 >
-                  <TeamMemberCard member={member} index={index} />
+                  <TeamMemberCard member={member} />
                 </div>
               ))}
             </div>
           </div>
         ))}
       </div>
-      <style>{`
-        .typing-effect {
-          display: inline-block;
-          white-space: nowrap;
-          position: relative;
-        }
-        
-        .cursor {
-          animation: blink 1s step-end infinite;
-          font-weight: 100;
-          color: #4B5563;
-        }
-        
-        @keyframes blink {
-          from, to { opacity: 1; }
-          50% { opacity: 0; }
-        }
-
-        @keyframes fadeSlideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };
