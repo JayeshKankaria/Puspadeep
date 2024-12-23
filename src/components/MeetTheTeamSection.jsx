@@ -11,7 +11,7 @@ const TypingEffect = ({ text, delay = 0 }) => {
         const timeout = setTimeout(() => {
           setCurrentText((prev) => prev + text[currentIndex]);
           setCurrentIndex(currentIndex + 1);
-        }, 100);
+        }, 50);
 
         return () => clearTimeout(timeout);
       } else {
@@ -94,7 +94,7 @@ const MeetTheTeamSection = () => {
   useEffect(() => {
     const fetchTeamMembers = async () => {
       try {
-         const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/team-members`);
+         const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/team-members`); 
          const data = await response.json();
          setTeamMembers(data);
       } catch (error) {
@@ -121,7 +121,7 @@ const MeetTheTeamSection = () => {
   }, {});
 
   return (
-    <section id="team" className="py-16 bg-gray-50 overflow-hidden">
+    <section id="team" className="py-16 bg-orange-100 overflow-hidden">
       <div className="container mx-auto text-center px-4">
         <div className={`
           transform transition-all duration-1000

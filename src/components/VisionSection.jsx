@@ -30,7 +30,7 @@ const VisionSection = () => {
 
   return (
     
-    <section className="flex flex-col justify-center items-center py-10 bg-gray-100">
+    <section className="flex flex-col justify-center items-center py-10 bg-orange-100">
        {/* Section Heading with Slide Animation */}
        <div
           className="relative overflow-hidden mb-12"
@@ -62,8 +62,8 @@ const VisionSection = () => {
                 key={index}
                 className={`w-10 h-10 flex items-center justify-center rounded-full border ${
                   currentSlide === index
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-600'
+                    ? 'bg-red-600 text-white'
+                    : 'bg-orange-100 text-gray-600'
                 }`}
                 onClick={() => setCurrentSlide(index)}
               >
