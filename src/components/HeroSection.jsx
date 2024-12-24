@@ -13,9 +13,9 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   useEffect(() => {
-    const typingSpeed = 120; // Speed for typing
+    const typingSpeed = 150; // Speed for typing
     const deletingSpeed = 100; // Speed for deleting
-    const pauseDuration = 20000; // How long to pause at full phrase
+    const pauseDuration = 2000; // How long to pause at full phrase
     
     const animateText = () => {
       const currentPhrase = phrases[currentPhraseIndex];
@@ -53,7 +53,7 @@ const HeroSection = () => {
   }, [currentPhraseIndex, displayText, isDeleting]);
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-r from-red-700 to-red-800">
+    <section className="py-40 px-10 bg-gradient-to-r from-red-700 to-red-800">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
           <span className="inline-block min-h-[1.2em]">

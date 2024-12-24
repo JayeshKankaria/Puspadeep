@@ -108,7 +108,7 @@ const ProjectsSection = () => {
   );
 
   return (
-    <section id="project" className="py-10 bg-gray-100 min-h-screen">
+    <section id="project" className="py-10 bg-orange-100 min-h-screen">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800">Our Projects</h2>
         <p className="text-lg text-gray-500">Highlighting Our Most Challenging and Rewarding Projects</p>

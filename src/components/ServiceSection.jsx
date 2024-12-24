@@ -23,7 +23,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Services We Provide</h2>
+        <h2 className="text-3xl font-bold text-center text-red-700 mb-12">Services We Provide</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
@@ -44,8 +44,8 @@ const ServicesSection = () => {
               {/* Content */}
               <div className="relative h-full p-6 flex flex-col justify-between text-white">
                 <div>
-                  <CheckCircle className="w-12 h-12 text-red-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                  <CheckCircle className="w-12 h-12 text-white-600 mb-4" />
+                  <h3 className="text-xl text-white-200 font-semibold mb-2">{service.title}</h3>
                   <p className="text-gray-200">{service.description}</p>
                 </div>
               </div>

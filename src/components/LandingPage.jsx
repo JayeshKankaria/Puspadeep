@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import VisionSection from './VisionSection';
 import MeetTheTeamSection from './MeetTheTeamSection';
 import ProjectsSection from './ProjectsSection';
+import AwardSection from './AwardSection'
 import HeroSection from './HeroSection';
 import ServiceSection from './ServiceSection';
 import {
@@ -19,8 +20,8 @@ const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigation = [
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#project' },
     { name: 'Services', href: '#services'},
+    { name: 'Projects', href: '#project' },
     { name: 'Awards', href: '#awards' },
     { name: 'Our Team', href: '#team' },
     { name: 'Contact', href: '#contact' }
@@ -113,14 +114,15 @@ const LandingPage = () => {
       </header>
 
       <HeroSection></HeroSection>
-      <section id="about" className="py-20 px-6 bg-gray-50">
+
+      <section id="about" className="py-20 px-6 translate-y-[20px] bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">About Us</h2>
+          <h2 className="text-4xl font-bold text-red-700 text-center mb-12">About Us</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                <span className="font-bold text-red-700">Puspadeep Consultancy & Services (P) Ltd </span>
+                <span className="font-bold text-orange-800">Puspadeep Consultancy & Services (P) Ltd </span>
                 is a trusted name in providing high-quality services and finishing solutions for a diverse
                 range of projects, from prestigious landmarks to residential properties, in and around Kolkata.
               </p>
@@ -153,6 +155,7 @@ const LandingPage = () => {
       <VisionSection></VisionSection>
       <ServiceSection></ServiceSection>
       <ProjectsSection></ProjectsSection>
+      <AwardSection></AwardSection>
       <MeetTheTeamSection></MeetTheTeamSection>
 
       {/* Contact Section */}
