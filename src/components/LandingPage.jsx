@@ -2,72 +2,55 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import VisionSection from './VisionSection';
 import MeetTheTeamSection from './MeetTheTeamSection';
-
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Phone, 
-  Mail, 
-  MapPin, 
+import ProjectsSection from './ProjectsSection';
+import HeroSection from './HeroSection';
+import ServiceSection from './ServiceSection';
+import {
+  ArrowRight,
+  CheckCircle,
+  Phone,
+  Mail,
+  MapPin,
   Menu as MenuIcon,
   X as CloseIcon
 } from 'lucide-react';
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const solutions = [
-    { 
-      title: 'Putty & Painting', 
-      description: 'Professional painting services with premium quality putty work for a flawless finish' 
-    },
-    { 
-      title: 'WallPaper', 
-      description: 'Expert wallpaper installation with a wide range of modern and classic designs' 
-    },
-    { 
-      title: 'WaterProofing', 
-      description: 'Comprehensive waterproofing solutions to protect your property from water damage' 
-    },
-  ];
-
   const navigation = [
-    { name: 'About', href: '#about' },          //about, projects, awards, our team,contatct, get quotation
-    {name: 'Projects', href:'#project'},
-    {name: 'Awards', href:'#awards'},
-    {name: 'Our Team', href:'#team'},
-    { name: 'Contact', href: '#contact' },
-    
-    //{ name: 'Admin', href: '/admin' }
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#project' },
+    { name: 'Services', href: '#services'},
+    { name: 'Awards', href: '#awards' },
+    { name: 'Our Team', href: '#team' },
+    { name: 'Contact', href: '#contact' }
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            {/* Logo */}
-            <div className="flex-shrink-0 mt-[-10px]">
-               <Link to="/" className="text-2xl font-bold text-red-600">
-                    <img
-                     src="src\assets\LOGO.jpeg"
-                     alt="Company Logo"
-                     className="h-[70px] w-auto"
-                     />
-                </Link>
+      {/* Header - Adjusted height and padding */}
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo - Adjusted margin and padding */}
+            <div className="flex-shrink-0 py-2">
+              <Link to="/" className="text-2xl font-bold text-red-600 block">
+                <img
+                  src="src\assets\LOGO.jpeg"
+                  alt="Company Logo"
+                  className="h-16 w-auto object-contain"
+                />
+              </Link>
             </div>
 
-
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Adjusted vertical alignment */}
             <div className="hidden md:flex md:items-center md:space-x-8">
               {navigation.map((item) => (
                 item.href.startsWith('#') ? (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-orange-700 hover:text-orange-500 transition-colors"
-
+                    className="text-orange-700 hover:text-orange-500 transition-colors py-2"
                   >
                     {item.name}
                   </a>
@@ -75,7 +58,7 @@ const LandingPage = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-gray-600 hover:text-blue-600 transition-colors py-2"
                   >
                     {item.name}
                   </Link>
@@ -86,11 +69,11 @@ const LandingPage = () => {
               </button>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button - Adjusted alignment */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-red-800 hover:text-orange-600 transition-colors"
+                className="text-red-800 hover:text-orange-600 transition-colors p-2"
               >
                 {isMenuOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
               </button>
@@ -99,13 +82,14 @@ const LandingPage = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden py-4">
+            <div className="md:hidden py-4 bg-white border-t">
               {navigation.map((item) => (
                 item.href.startsWith('#') ? (
                   <a
                     key={item.name}
                     href={item.href}
                     className="block py-2 text-orange-700 hover:text-orange-500 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </a>
@@ -114,6 +98,7 @@ const LandingPage = () => {
                     key={item.name}
                     to={item.href}
                     className="block py-2 text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
@@ -127,65 +112,48 @@ const LandingPage = () => {
         </nav>
       </header>
 
+      <HeroSection></HeroSection>
+      <section id="about" className="py-20 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12">About Us</h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <span className="font-bold text-red-700">Puspadeep Consultancy & Services (P) Ltd </span>
+                is a trusted name in providing high-quality services and finishing solutions for a diverse
+                range of projects, from prestigious landmarks to residential properties, in and around Kolkata.
+              </p>
+              <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+                With a commitment to excellence, we have contributed to several iconic projects, including
+                <span className="font-semibold"> Tata Medical Centre</span>, one of the nation's leading cancer
+                care hospitals, and the expansion of the <span className="font-semibold">Netaji Subhas Chandra Bose
+                  International Airport</span> in Kolkata. Alongside these large-scale ventures, we deliver exceptional
+                finishing work for individual houses and smaller-scale projects, ensuring the same level of quality
+                and attention to detail.
+              </p>
+              <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+                Our dedication to superior craftsmanship and timely execution has earned us various awards year after year,
+                solidifying our reputation as a reliable and high-value service provider. At Puspadeep Consultancy & Services (P) Ltd,
+                we take pride in exceeding client expectations and setting new benchmarks of excellence in every project we undertake.
+              </p>
+            </div>
 
-      {/* Hero Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-red-700 to-red-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Transform Your Business Today
-          </h1>
-          <p className="text-xl text-orange-100 mb-8">
-            Empower your team with cutting-edge solutions designed for modern businesses
-          </p>
-          <div className="flex gap-4 justify-center">
-            <button className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-100 transition-colors">
-              Get Started
-            </button>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-              Learn More
-            </button>
+            {/* Image or Visual Element */}
+            <div className="flex justify-center">
+              <img
+                src="src\assets\groupPhoto.jpg"
+                alt="Puspadeep Consultancy & Services"
+                className="rounded-lg shadow-lg w-full max-w-md"
+              />
+            </div>
           </div>
         </div>
       </section>
-
-       {/* CTA Section */}
-       <section id="about" className="py-20 px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">About Us</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Join thousands of satisfied customers who have transformed their business
-          </p>
-          <button className="bg-red-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors inline-flex items-center gap-2">
-            Contact Sales <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
-      </section>
-
       <VisionSection></VisionSection>
-
-      {/* Solutions Section */}
-        <section id="solutions" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-            {solutions.map((solution, index) => (
-                <div key={index} className="p-6 rounded-lg border hover:shadow-lg transition-shadow">
-                <CheckCircle className="w-12 h-12 text-red-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{solution.title}</h3>
-                <p className="text-gray-600">{solution.description}</p>
-                </div>
-            ))}
-            </div>
-        </div>
-        </section>
-
-       
-        
-        <MeetTheTeamSection></MeetTheTeamSection>
-
-
-
-     
+      <ServiceSection></ServiceSection>
+      <ProjectsSection></ProjectsSection>
+      <MeetTheTeamSection></MeetTheTeamSection>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
@@ -220,5 +188,4 @@ const LandingPage = () => {
     </div>
   );
 };
-
 export default LandingPage;
