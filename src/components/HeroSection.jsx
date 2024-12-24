@@ -62,7 +62,7 @@ const HeroSection = () => {
           </span>
         </h1>
         <p className="text-xl text-orange-100 mb-8">
-          Empower your team with cutting-edge solutions designed for modern businesses
+          Experience quality finishing work delivered in time
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-100 transition-colors">
